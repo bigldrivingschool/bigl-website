@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Navigation } from "../components/Navigation/Navigation";
 import { Services } from "../components/Services";
 import { Pricing } from "../components/Pricing";
+import { ContactCTA } from "../components/ContactCTA";
 
 const Home: NextPage = () => {
   return (
@@ -48,7 +49,7 @@ const Home: NextPage = () => {
                   <div className="rounded-md shadow">
                     <a
                       href="#"
-                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-gray-900 px-8 py-3 text-base font-medium text-white hover:bg-gray-700 md:py-4 md:px-10 md:text-lg"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-gray-900 px-8 py-3 text-base font-medium uppercase text-white hover:bg-gray-700 md:py-4 md:px-10 md:text-lg"
                     >
                       Learn more
                     </a>
@@ -69,6 +70,7 @@ const Home: NextPage = () => {
       </div>
       <Services />
       <Pricing />
+      <ContactCTA />
     </div>
   );
 };

@@ -10,7 +10,9 @@ const Home: NextPage = () => {
   return (
     <div className="">
       <Head>
-        <title>Create Next App</title>
+        <title>
+          Big L Driving School | Driving Lessons North Shore, Auckland
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

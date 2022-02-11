@@ -6,6 +6,7 @@ import { Navigation } from "../components/Navigation/Navigation";
 import { Services } from "../components/Services";
 import { Pricing } from "../components/Pricing";
 import { ContactCTA } from "../components/ContactCTA";
+import { Footer } from "../components/Footer";
 
 const Home: NextPage = () => {
   return (
@@ -71,6 +72,7 @@ const Home: NextPage = () => {
       <Services />
       <Pricing />
       <ContactCTA />
+      <Footer />
     </div>
   );
 };

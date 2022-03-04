@@ -1,5 +1,7 @@
 import { FacebookIcon, InstagramIcon } from "../Icons";
 
+// https://tailwindui.com/page-examples/landing-page-01
+
 export const Footer = () => {
   return (
     <>

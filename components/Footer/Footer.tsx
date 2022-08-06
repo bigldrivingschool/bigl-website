@@ -23,9 +23,9 @@ export const Footer = () => {
               <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                 Contact
               </h4>
-              <p className="text-base text-gray-500">
-                Big L Driving School Silverdale Auckland
-              </p>
+              <p className="text-base text-gray-500">Big L Driving School</p>
+              <p className="text-base text-gray-500">Silverdale</p>
+              <p className="text-base text-gray-500">Auckland</p>
             </div>
 
             <div className="mt-3 rounded-md shadow">

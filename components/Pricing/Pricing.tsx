@@ -3,7 +3,7 @@ import { CheckIcon, PlusCircleIcon } from "@heroicons/react/outline";
 const pricePackages = [
   {
     name: "1 hour lesson",
-    price: 65,
+    price: 70,
     description: "Our most popular option",
     content: [
       "A full 1 hour of driving",
@@ -14,7 +14,7 @@ const pricePackages = [
   },
   {
     name: "6 x 1 hour driving lessons",
-    price: 375,
+    price: 400,
     description: "A great package deal!",
     content: [
       "Tailored to the driver's individual needs",
@@ -24,7 +24,7 @@ const pricePackages = [
   },
   {
     name: "10 x 1 hour driving lessons",
-    price: 600,
+    price: 650,
     description: "Our best value package deal!",
     content: [
       "Tailored to the driver's individual needs",
@@ -34,20 +34,13 @@ const pricePackages = [
   },
   {
     name: "1 hour mock test",
-    price: 70,
+    price: 75,
     description: "Drive on real test routes",
     content: [
       "A full 1 hour of driving",
       "Restricted or full licence mock test",
     ],
     addVechicle: true,
-  },
-  {
-    name: "Vehicle hire for licence test",
-    price: 75,
-    description: "Hire a vehicle you are comfortable with",
-    content: ["For $40 more, get a 1 hour pre-test drive if required"],
-    addVechicle: false,
   },
 ];
 
@@ -63,10 +56,10 @@ export const Pricing = () => {
           driving exam. Feel free to call us for any custom requirements.
         </p>
       </div>
-      <div className="flex">
+      <div className="my-4 flex justify-center">
         {pricePackages.map((pricePackage) => (
           <div
-            className="mb-4 max-w-sm overflow-hidden rounded-lg shadow-lg"
+            className="ch mb-4 mr-4 max-w-sm overflow-hidden rounded-lg shadow-lg"
             key={pricePackage.name}
           >
             <div className="bg-white px-6 py-8  sm:p-10 sm:pb-6">
@@ -83,7 +76,7 @@ export const Pricing = () => {
               </div>
             </div>
             <div className="bg-slate-50 px-6 pt-6 pb-8 sm:p-10 sm:pt-6">
-              <ul className="">
+              <ul>
                 {pricePackage.content.map((content, i) => (
                   <li className="mt-4 flex items-start" key={i}>
                     <div className="flex-shrink-0">

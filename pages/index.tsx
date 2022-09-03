@@ -7,6 +7,7 @@ import { Services } from "../components/Services";
 import { Pricing } from "../components/Pricing";
 import { ContactCTA } from "../components/ContactCTA";
 import { Footer } from "../components/Footer";
+import { Container } from "../components/Layout/Layout";
 
 const Home: NextPage = () => {
   return (
@@ -33,7 +34,10 @@ const Home: NextPage = () => {
 
             <Navigation />
 
-            <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <Container
+              className="mt-10 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-28"
+              element="main"
+            >
               <div className="sm:text-center lg:text-left">
                 <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
                   <span className="block xl:inline">98% of customers</span>{" "}
@@ -57,7 +61,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
               </div>
-            </main>
+            </Container>
           </div>
         </div>
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">

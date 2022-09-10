@@ -2,36 +2,41 @@ import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
+import Link from "next/link";
+import { Container } from "../Layout/Layout";
 
 const navigation = [
-  { name: "Home", href: "#" },
-  { name: "Services", href: "#" },
-  { name: "Instructors", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "Instructors", href: "/instructors" },
+  { name: "Contact", href: "/contact" },
+  { name: "App", href: "/app" },
 ];
 
 export const Navigation = () => {
   return (
     <Popover>
-      <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
+      <Container className="relative pt-6">
         <nav
           className="relative flex items-center justify-between sm:h-10 lg:justify-start"
           aria-label="Global"
         >
           <div className="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
             <div className="flex w-full items-center justify-between md:w-auto">
-              <a href="#">
-                <span className="sr-only">Big L Driving School</span>
-                <Image
-                  alt="Big L Logo"
-                  className="h-8 w-auto sm:h-10"
-                  src="/logo.svg"
-                  width={187}
-                  height={45}
-                />
-              </a>
+              <Link href="/">
+                <a>
+                  <span className="sr-only">Big L Driving School</span>
+                  <Image
+                    alt="Big L Logo"
+                    className="h-8 w-auto sm:h-10"
+                    src="/logo.svg"
+                    width={187}
+                    height={45}
+                  />
+                </a>
+              </Link>
               <div className="-mr-2 flex items-center md:hidden">
-                <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-600">
                   <span className="sr-only">Open main menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
@@ -40,17 +45,15 @@ export const Navigation = () => {
           </div>
           <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="font-medium text-gray-500 hover:text-gray-900"
-              >
-                {item.name}
-              </a>
+              <Link key={item.name} href={item.href}>
+                <a className="font-medium text-gray-500 hover:text-gray-900">
+                  {item.name}
+                </a>
+              </Link>
             ))}
           </div>
         </nav>
-      </div>
+      </Container>
 
       <Transition
         as={Fragment}
@@ -83,13 +86,11 @@ export const Navigation = () => {
             </div>
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-                >
-                  {item.name}
-                </a>
+                <Link key={item.name} href={item.href}>
+                  <a className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
+                    {item.name}
+                  </a>
+                </Link>
               ))}
             </div>
           </div>

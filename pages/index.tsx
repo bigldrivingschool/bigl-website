@@ -45,7 +45,6 @@ const Home: NextPage = () => {
                     pass on the first attempt
                   </span>
                 </h1>
-
                 <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
                   We offer a range of driving lesson options around Silverdale,
                   Whangaparoa and Hibiscus Coast area in Auckland

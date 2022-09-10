@@ -15,3 +15,8 @@ export type FeedbackFormData = {
   email: string;
   feedbackAreas: FeedbackArea[];
 };
+
+// {
+//   "first_name": "Josh",
+//   "feedback": ["blindspot", "mirror", "followDistance", "indicating", "speed", "gapSelection", "laneChange", "motorway", "keepingLeft","multiLaneTurn"]
+//  }

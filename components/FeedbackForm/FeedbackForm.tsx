@@ -49,8 +49,8 @@ export const FeedbackForm = () => {
         <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
           <fieldset>
             <legend className="sr-only">Student Feedback</legend>
-            <div className="grid grid-cols-6 gap-6">
-              <div className="col-span-6 mb-3 sm:col-span-3">
+            <div className="grid grid-cols-6 gap-6 ">
+              <div className="col-span-6 sm:col-span-3">
                 <TextField
                   name="firstName"
                   label="First name"
@@ -61,7 +61,7 @@ export const FeedbackForm = () => {
                   }}
                 />
               </div>
-              <div className="col-span-6 mb-3 sm:col-span-3">
+              <div className="col-span-6 sm:col-span-3">
                 <TextField
                   name="lastName"
                   label="Last name"
@@ -72,7 +72,7 @@ export const FeedbackForm = () => {
                   }}
                 />
               </div>
-              <div className="col-span-6 mb-3 sm:col-span-3">
+              <div className="col-span-6 sm:col-span-3">
                 <TextField
                   name="email"
                   label="Email"
@@ -87,7 +87,7 @@ export const FeedbackForm = () => {
               </div>
             </div>
             <div
-              className="mt-6 text-base font-medium text-gray-900"
+              className="mt-8 text-base font-medium text-gray-900"
               aria-hidden="true"
             >
               Areas to improve

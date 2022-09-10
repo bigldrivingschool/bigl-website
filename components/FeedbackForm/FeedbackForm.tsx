@@ -1,3 +1,4 @@
+import { SetStateAction, useState } from "react";
 import { FeedbackArea, FeedbackFormData } from "../../models";
 import { TextField } from "../TextField";
 
@@ -15,13 +16,18 @@ const feedbackAreas: { id: FeedbackArea; label: string }[] = [
 ];
 
 export const FeedbackForm = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [feedback, setFeedback] = useState<FeedbackArea[]>([]);
+
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    console.log(event);
     const data: FeedbackFormData = {
-      name: event.target.fullName.value,
+      firstName: event.target.firstName.value,
+      lastName: event.target.lastName.value,
       email: event.target.email.value,
-      feedbackAreas: ["blindspot"],
+      feedbackAreas: feedback,
     };
 
     const res = await fetch("/api/feedback", {
@@ -43,17 +49,42 @@ export const FeedbackForm = () => {
         <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
           <fieldset>
             <legend className="sr-only">Student Feedback</legend>
-            <div className="col-span-6 mb-3 sm:col-span-3">
-              <TextField name="fullName" label="Full name" id="fullName" />
-            </div>
-            <div className="col-span-6 mb-3 sm:col-span-3">
-              <TextField
-                name="email"
-                label="Email"
-                placeholder="jane@email.com"
-                type="email"
-                id="email"
-              />
+            <div className="grid grid-cols-6 gap-6">
+              <div className="col-span-6 mb-3 sm:col-span-3">
+                <TextField
+                  name="firstName"
+                  label="First name"
+                  id="firstName"
+                  value={firstName}
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="col-span-6 mb-3 sm:col-span-3">
+                <TextField
+                  name="lastName"
+                  label="Last name"
+                  id="lastName"
+                  value={lastName}
+                  onChange={(e) => {
+                    setLastName(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="col-span-6 mb-3 sm:col-span-3">
+                <TextField
+                  name="email"
+                  label="Email"
+                  placeholder="jane@email.com"
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+              </div>
             </div>
             <div
               className="mt-6 text-base font-medium text-gray-900"
@@ -67,9 +98,17 @@ export const FeedbackForm = () => {
                   <div className="flex h-5 items-center">
                     <input
                       id={area.id}
-                      name={area.id}
+                      name="area"
                       type="checkbox"
                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                      checked={feedback.includes(area.id)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setFeedback([...feedback, area.id]);
+                        } else {
+                          setFeedback(feedback.filter((f) => f !== area.id));
+                        }
+                      }}
                     />
                   </div>
                   <div className="ml-3 text-sm">

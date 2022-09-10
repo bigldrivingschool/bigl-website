@@ -1,4 +1,4 @@
-import { HTMLInputTypeAttribute } from "react";
+import { ChangeEvent, HTMLInputTypeAttribute } from "react";
 
 type TextFieldProps = {
   value?: string | number;
@@ -7,6 +7,7 @@ type TextFieldProps = {
   name: string;
   placeholder?: string;
   type?: Extract<HTMLInputTypeAttribute, "text" | "email">;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const TextField = ({
@@ -16,6 +17,7 @@ export const TextField = ({
   value,
   type = "text",
   id,
+  onChange,
 }: TextFieldProps) => {
   return (
     <>
@@ -29,6 +31,7 @@ export const TextField = ({
         name={name}
         id={id}
         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+        onChange={onChange}
       />
     </>
   );

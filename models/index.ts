@@ -11,7 +11,8 @@ export type FeedbackArea =
   | "multiLaneTurn";
 
 export type FeedbackFormData = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   feedbackAreas: FeedbackArea[];
 };

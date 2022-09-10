@@ -18,22 +18,22 @@ export default async function handler(
 
   console.log("body: ", body);
 
-  if (!body.name || !body.email || !body.feedbackAreas.length) {
+  if (!body.firstName || !body.email || !body.feedbackAreas.length) {
     return res.status(400).json({ data: "Required fields are missing" });
   }
 
   const msg: MailDataRequired = {
-    from: "testemail@gmail.com", // Change to your verified sender
-    subject: "Sending with SendGrid is Fun",
-    text: "and easy to do anywhere, even with Node.js",
-    html: "<strong>and easy to do anywhere, even with Node.js</strong>",
-    mailSettings: {
-      sandboxMode: {
-        enable: true,
-      },
-    },
+    from: process.env.SENDGRID_SENDER_EMAIL || "",
+    to: body.email,
+    bcc: process.env.SENDGRID_SENDER_EMAIL,
+    // mailSettings: {
+    //   sandboxMode: {
+    //     enable: true,
+    //   },
+    // },
     templateId: "d-b71666d8c05e4225a858ee820ba0abbe",
     dynamicTemplateData: {
+      first_name: body.firstName,
       feedback: body.feedbackAreas,
     },
   };
@@ -45,5 +45,5 @@ export default async function handler(
     return res.status(error?.statusCode || 500).json({ error: error.message });
   }
 
-  res.status(200).json({ data: `${body.name} ${body.email}` });
+  res.status(200).json({ data: `${body.firstName} ${body.email}` });
 }
